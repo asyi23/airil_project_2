@@ -1,0 +1,666 @@
+#setting_ads_category_color_input img{
+    max-height: 150px;
+    max-width: 80%;
+}
+
+.container-preview{
+    margin: 5px 0px 20px;
+}
+
+input[type=file]{
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 686px) {
+
+    .container-preview {
+        max-width: 683px!important;
+    }
+}
+
+@media screen and (max-width: 627px) {
+
+    .container-preview {
+        max-width: 627px!important;
+    }
+}
+
+@media screen and (max-width: 459px) {
+
+    .container-preview {
+        max-width: 459px!important;
+    }
+}
+
+@media screen and (max-width: 366px) {
+
+    .container-preview {
+        max-width: 366px!important;
+    }
+}
+
+@media screen and (max-width: 267px) {
+
+    .container-preview {
+        max-width: 267px!important;
+    }
+}
+
+.container-preview h6{
+    padding-bottom: 10px;
+}
+
+.desktop-car-list{
+    background-color: white;
+    width: 735px;
+    height:203.59px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    margin:10px 0px;
+}
+
+.default-car-desktop-list {
+    /* width: calc(100% - 354.71px); */
+    width: 40%;
+    height: inherit;
+    float: left;
+    position: relative;
+}
+
+.default-car-desktop-list img{
+    border-radius: 3px;
+    position:absolute;
+    z-index: 1;
+    padding: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+.desktop-list-description{
+    height:100%;
+    /* width:354.71px; */
+    width:60%;
+    float:right;
+    z-index: 2;
+    object-fit: cover;
+    background-image: url('/assets/images/caricarz-cover-page.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* background-size: 354.71px 100%; */
+    border-radius: 5px;
+    position:relative;
+}
+
+.desktop-car-list-medium{
+    background-color: white;
+     width:603px;
+    /*width:100%;*/
+    height:161.78px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    margin:10px 0px;
+}
+
+.default-car-desktop-list-medium {
+    width: 30%;
+    height: inherit;
+    float: left;
+    position: relative;
+}
+
+.default-car-desktop-list-medium img{
+    padding: 10px;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%
+}
+
+.desktop-list-medium-description{
+    height:100%;
+    width:60%;
+    float:left;
+    object-fit: cover;
+    background-image: url('/assets/images/caricarz-cover-page.png');
+    background-size: 100% 100%;
+    position:relative;
+}
+
+.desktop-list-medium-contact{
+    position:relative;
+    float:left;
+    height:50%;
+    width: 10%;
+}
+
+.desktop-list-medium-contact-icon{
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 25px 15px;
+}
+
+.whatsapp-container{
+    border-top-right-radius: 5px;
+    background-color: #31acbf;
+}
+
+.phone-container{
+    border-bottom-right-radius: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+.desktop-car-grid{
+    background-color: white;
+    width:250px;
+    height:344.42px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    margin:10px 0px;
+    position: relative;
+}
+
+.default-car-desktop-grid{
+    position: relative;
+}
+
+.default-car-desktop-grid img{
+    height:210.09px;
+    /* width:280.13px; */
+    width: 100%;
+    object-fit: cover;
+    position:absolute;
+    z-index: 1;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.desktop-grid-top-description {
+    height:86.50px;
+    width:100%;
+    z-index: 2;
+    background-image: url('/assets/images/caricarz-cover-page.png');
+    background-size: 100% 86.33px;
+    position:relative;
+    top: 211.09;
+}
+
+.desktop-grid-bottom-description{
+    height:46.5px;
+    width:100%;
+    z-index: 2;
+    top: 211.15px;
+    background-image: url('/assets/images/caricarz-cover-page.png');
+    background-size: 100% 46px;
+    position:relative;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.mobile-car-grid{
+    background-color: white;
+    width:190px;
+    height:276.24px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    position: relative;
+    margin:10px 0px;
+}
+
+.default-car-mobile-grid {
+    position:relative;
+}
+
+.default-car-mobile-grid img{
+    height:138.25px;
+    width:100%;
+    object-fit: cover;
+    position:absolute;
+    z-index: 1;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.mobile-grid-description{
+    height:137.99px;
+    width:100%;
+    z-index: 2;
+    background-image: url('/assets/images/caricarz-cover-page.png');
+    background-size: 100% 137.99px;
+    position:relative;
+    top: 138.25px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.mobile-car-list{
+    background-color: white;
+     width:445px;
+    height:134.18px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    margin:10px 0px;
+
+}
+
+.default-car-mobile-list {
+    width: 30%;
+    height: inherit;
+    float: left;
+    position: relative;
+}
+
+.default-car-mobile-list img{
+    padding: 10px;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%
+}
+
+.mobile-list-description{
+    height:100%;
+    /* width:169.16px; */
+    width: 60%;
+    float:left;
+    background-image: url('/assets/images/caricarz-cover-page.png');
+    background-size: 100% 100%;
+    position:relative;
+}
+
+.mobile-list-contact{
+    position:relative;
+    float:left;
+    height:50%;
+    width: 10%;
+}
+
+.mobile-list-contact-icon{
+    padding:3.75;
+    align-items: center;
+    padding: 1px 10px;
+}
+
+.custom-icon.star-icon {
+    position: relative;
+    width: 80px!important;
+    transform: translate(-7px,-7px);
+    z-index: 3;
+}
+
+.corner-desktop-list, .corner-desktop-list-medium, .corner-desktop-grid, .corner-mobile-list, .corner-mobile-grid{
+    z-index: 3;
+    position: absolute;
+}
+
+.description{
+    justify-content: flex-start!important;
+    z-index: 3;
+    padding: 13px;
+    position: relative;
+}
+
+.title{
+    font-size: 14px!important;
+    height: 38.4px;
+    margin-bottom: 7px;
+    font-weight: 700;
+    line-height: 1.5;
+    font-family: Roboto,sans-serif!important;
+}
+
+.info{
+    font-size: 12px;
+    font-family: Roboto,sans-serif!important;
+    font-weight: 400;
+    color: #374255;
+    flex: 0 1 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 128.92px;
+}
+
+.description :after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.badge-used-car {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: Roboto,sans-serif!important;
+}
+
+.badge-used-car {
+    background-color: #0c79be;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    margin: 0px 10px 0px 0px;
+    font-size: 100%;
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 3px;
+}
+
+.custom-icon {
+    width: 12px!important;
+    padding-bottom: 4px;
+    display: inline-block!important;
+    margin: 0px 9.5px 0px 0px;
+
+}
+
+.d-sm-flex {
+    display: flex!important;
+}
+
+.d-sm-block {
+    display: block!important;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem!important;
+    margin-top: 2px;
+}
+
+.mt-sm-0{
+    margin: top 0,!important;
+}
+
+.mt-auto{
+    margin: top 0,!important;
+}
+
+.align-self-stretch {
+    align-self: stretch!important;
+}
+
+.d-flex {
+    display: flex!important;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Roboto,sans-serif!important;
+}
+
+.align-items-start {
+    align-items: flex-start!important;
+}
+
+.pr-2, .px-2 {
+    padding-right: 0.5rem!important;
+}
+
+.car-list-price-container .car-price {
+    font-size: 20px;
+    margin-top: 5px;
+    bottom:0;
+}
+
+.price-color{
+    color: #31acbf;
+}
+
+.font-weight-bold {
+    font-weight: 700!important;
+}
+
+.registration-img-container {
+    transform: translateY(-2px);
+    margin-left: 5px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.car-list-price-container .registration-img-container .registration-img {
+    filter: grayscale(100) saturate(100) brightness(.5);
+    transform: translateY(4px);
+}
+
+.registration-img-container .registration-img {
+    width: 12px!important;
+}
+
+.font-weight-normal {
+    font-weight: 400!important;
+}
+
+.align-self-center {
+    align-self: center!important;
+}
+
+.car-price-tip {
+    color: #000;
+}
+
+.car-price-tip {
+    transform: unset;
+}
+
+.car-price-tip {
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.fa-question-circle:before {
+    content: "\f059";
+    width: 10px;
+    height: 12px;
+}
+
+.price-month {
+    transform: translateY(-2px);
+    align-items: center;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+.d-none {
+    display: none!important;
+}
+
+
+
+.car-list-contact-link-section {
+    padding: 1.5rem;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.border-0 {
+    border: 0!important;
+}
+
+.description-footer {
+    padding: 0px 8px 10px;
+    border-top: 0 solid #f6f6f6;
+    height:auto;
+}
+
+.car-list-contact-link-container {
+    display: inline-block;
+    width: calc(50% - 4.5px);
+    text-align: center;
+    bottom: 0;
+}
+
+
+.contact-grid-view.car-list-contact-link.car-list-modal-indicator, .contact-grid-view.car-list-contact-link.ads-category-4.car-list-modal-indicator {
+    background: #fff;
+    border: 1px solid #374255;
+    color: #374255;
+    height: 32.5px;
+    width:95%;
+}
+
+.btn-contact{
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: .9375rem;
+    border-radius: 3px;
+    font-weight: 700!important;
+    font-family: Roboto,sans-serif!important;
+    font-size: 13px;
+}
+
+.pixel {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+
+.contact-grid-view.car-list-contact-link.whatsapp-link {
+    background: #31acbf;
+    color: #fff;
+    border: 0;
+    height: 32.5px;
+    width:95%;
+}
+
+.flex-row {
+    flex-direction: row!important;
+}
+
+
+.description-mobile-grid {
+    padding: 12px 12px 8px;
+    justify-content: flex-start!important;
+    z-index: 3;
+    position: relative;
+    font-size: 11px!important;
+    font-family: Roboto,sans-serif!important;
+}
+
+.title-mobile-grid{
+    font-size: 12px!important;
+    margin:0px 0px 3.6px;
+    font-weight: 700;
+    line-height: 1.5;
+    height: 38.4px;
+}
+
+.description-desktop-grid-top {
+    padding: 16px 16px 4px;
+    justify-content: flex-start!important;
+    z-index: 3;
+    position: relative;
+    /* top: 211.09; */
+}
+
+.title-desktop-grid{
+    font-size: 13px!important;
+    margin:0px 0px 3.9px;
+    font-weight: 700;
+    line-height: 1.5;
+    height: 248.14px;
+    font-family: Roboto,sans-serif!important;
+}
+
+.info-grid{
+    padding: 0px 0px 0px 4px;
+    font-family: Roboto,sans-serif!important;
+}
+
+.info-grid-badge{
+    padding: 0px;
+}
+
+.price-container {
+    flex-direction: row;
+    padding: 12px 16px 4px;
+}
+
+.price-container .listing-car-price {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0px;
+    padding-right: 8px;
+    align-items: center;
+    font-family: Roboto,sans-serif!important;
+}
+
+.price-container .listing-sub-car-price-detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    font-family: Roboto,sans-serif!important;
+}
+
+.price-container .listing-sub-car-price-detail .listing-car-price-month {
+    font-size: 11px!important;
+}
+
+
+.listing-car-price-mobile-grid {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 15px;
+    align-items: center;
+    font-family: Roboto,sans-serif!important;
+}
+
+.description-desktop-list-medium {
+    padding: 10px 8px 10px 10px;
+    font-family: Roboto,sans-serif!important;
+}
+
+.title-desktop-list-medium{
+    font-size: 13px!important;
+    font-weight: 700;
+    height: 38.4px;
+}
+
+.listing-car-price-desktop-list-medium {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 35px;
+    align-items: center;
+}
+
+.description-mobile-list {
+    padding: 10px 8px 10px 10px;
+    font-family: Roboto,sans-serif!important;
+    font-size:10px;
+}
+
+.title-mobile-list{
+    font-size: 13px!important;
+    font-weight: 700;
+    height: 38.4px;
+}
+
+.listing-car-price-mobile-list{
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 12px;
+    align-items: center;
+}
+
