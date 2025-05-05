@@ -151,7 +151,6 @@ $con=mysqli_init(); mysqli_ssl_set($con, NULL, NULL, <ca-cert-filename>, NULL, N
                                 </div>
                             </div>
                         </div>
-                        dd($department_equipment->department_equipment_id);
                         <div class="col-xl-9 col-lg-12 col-md-12">
                             <div class="card">
                                 <div class="card-body">
