@@ -165,7 +165,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="form_detail_date">Form Date<span class="text-danger">*</span></label>
-                                <input name="form_detail_date" type="datetime" maxlength="100" class="form-control" value="{{$form_detail->form_detail_date}}">
+                                <input name="form_detail_date" type="date" maxlength="100" class="form-control" value="{{$form_detail->form_detail_date}}">
                             </div>
                         </div>
                         <div class="col-sm-6">
