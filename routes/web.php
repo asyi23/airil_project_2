@@ -11,12 +11,6 @@ Route::get('/version', function () {
 });
 
 Auth::routes(['register' => false]);
-Route::get('/test', function () {
-    // $company = Company::find(90);
-    // dd($company->getFirstMedia('company_banner')->getUrl('full'));
-    // dd($company->getFirstMedia('company_banner')->getUrl('thumb'));
-    return 'success';
-});
 /**** Dashboard ****/
 Route::match(['get', 'post'], '/', 'AdminController@dashboard')->name('dashboard');
 /**** Dashboard ****/
@@ -31,7 +25,7 @@ Route::match(['get', 'post'], 'form_detail/listing/{id}', 'FormController@form_d
 Route::match(['get', 'post'], 'form_detail_add/add/{id}', 'FormController@form_detail_add')->name('form_detail_add');
 Route::match(['get', 'post'], 'form_detail_edit/add/{id}', 'FormController@form_detail_edit')->name('form_detail_edit');
 Route::match(['get', 'post'], 'form_detail_edit/delete', 'FormController@delete_form_details')->name('form_detail_delete');
-Route::match(['get', 'post'], 'form_detail_edit/download/{id}', 'FormController@download_form_details')->name('form_detail_download');
+Route::match(['get', 'post'], 'form_detail_edit/download/{id}/{start_date?}/{end_date?}', 'FormController@download_form_details')->name('form_detail_download');
 
 /**** Admin Profile Management ****/
 Route::match(['get', 'post'], 'admin/profile', 'AdminController@profile')->name('admin_profile');

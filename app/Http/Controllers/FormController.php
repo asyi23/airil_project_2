@@ -276,9 +276,15 @@ class FormController extends Controller
         Session::flash('success_msg', "Successfully delete order no ." . $form_detail->form_detail_order_no);
         return redirect()->route('form_detail_listing', $form_id);
     }
-    public function download_form_details(Request $request, $id)
+    public function download_form_details(Request $request, $id, $start_date = null, $end_date = null)
     {
-        $form_detail = FormDetail::where('form_id', $id)->get();
+        $form_detail = FormDetail::where('form_id', $id)
+            ->when(!empty($start_date) && !empty($end_date), function ($query) use ($end_date, $start_date) {
+                $query->where(function ($q) use ($start_date, $end_date) {
+                    $q->whereBetween('form_detail_date', [$start_date, $end_date]);
+                });
+            })
+            ->get();
         $form = Form::where('form_id', $id)->first();
         $total_form_detail = $form_detail->sum('form_detail_quantity');
         $measurement = $form_detail->pluck('form_detail_oum')->first();

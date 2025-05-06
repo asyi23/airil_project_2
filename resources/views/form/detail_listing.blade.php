@@ -185,6 +185,26 @@
             <div class="card-body">
                 <div class="table-rep-plugin">
                     <div class="table-responsive mb-0" data-pattern="priority-columns">
+                        <div class="button-container" style="display: flex;gap:10px;">
+                            <form action="{{ route('form_detail_download',['id' => $form->form_id, 'start_date' => $search['start_date'] ?? null, 'end_date' => $search['end_date'] ?? null]) }}" method="GET">
+                                <button type="submit" class="btn btn-success">Download PDF</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page-content -->
+
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-rep-plugin">
+                    <div class="table-responsive mb-0" data-pattern="priority-columns">
                         <table id="tech-companies-1" class="table">
                             <thead class="thead-light">
                                 <tr>
@@ -231,9 +251,6 @@
                                                 data-id="{{ $rows->form_detail_id }}" class='delete'><a
                                                     href='javascript:void(0);'
                                                     class='btn btn-sm btn-outline-danger waves-effect waves-light'>Delete</a></span>
-                                            <form action="{{ route('form_detail_download',$rows->form_detail_id) }}" method="GET">
-                                                <button type="submit" class="btn btn-success">Download PDF</button>
-                                            </form>
                                         </div>
                                     </td>
                                 </tr>
