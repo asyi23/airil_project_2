@@ -30,6 +30,11 @@ class DepartmentEquipment extends Model
     {
         $company_branch = DepartmentEquipment::query()
             ->where('department_id', '=', $department_id)
+            ->when(!empty($search['keywords']), function ($query) use ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('department_equipment_name', 'like', '%' . $search['keywords'] . '%');
+                });
+            })
             ->orderbyDesc('department_equipment_created')
             ->paginate($perpage);
 

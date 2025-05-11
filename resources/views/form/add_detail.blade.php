@@ -156,8 +156,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="form_detail_order_no">Order No<span class="text-danger">*</span></label>
-                                <input name="form_detail_order_no" type="text" maxlength="100" class="form-control">
+                                <label for="form_detail_done_by">End Date<span class="text-danger">*</span></label>
+                                <input name="form_detail_done_by" type="date" maxlength="100" class="form-control">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -168,8 +168,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="form_detail_done_by">Done By<span class="text-danger">*</span></label>
-                                <input name="form_detail_done_by" type="text" maxlength="100" class="form-control">
+                                <label for="form_detail_order_no">Order No<span class="text-danger">*</span></label>
+                                <input name="form_detail_order_no" type="text" maxlength="100" class="form-control">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -180,7 +180,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="form_detail_oum">OUM<span class="text-danger">*</span></label>
+                                <label for="form_detail_oum">UOM<span class="text-danger">*</span></label>
                                 <input name="form_detail_oum" type="text" maxlength="100" class="form-control">
                             </div>
                         </div>

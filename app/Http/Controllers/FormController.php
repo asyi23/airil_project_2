@@ -17,7 +17,21 @@ class FormController extends Controller
     {
         $search = array();
         $department_equipment = DepartmentEquipment::where('department_equipment_id', $id)->first();
-        $search = session('company_search') ? session('company_search') : $search;
+        if ($request->isMethod('post')) {
+            $submit = $request->input('submit');
+
+            switch ($submit) {
+                case 'search':
+                    session(['form_search' => [
+                        'keywords' => $request->input('keywords'),
+                    ]]);
+                    break;
+                case 'reset':
+                    session()->forget('form_search');
+                    break;
+            }
+        }
+        $search = session('form_search') ? session('form_search') : $search;
         return view('form.listing', [
             'submit' => route('form_listing', $id),
             'submit_new' => route('form_add', $id),
@@ -43,6 +57,7 @@ class FormController extends Controller
                     session(['form_detail_search' => [
                         "start_date" =>  $request->input('start_date'),
                         'end_date' => $request->input('end_date'),
+                        'keywords' => $request->input('keywords'),
                     ]]);
                     break;
                 case 'reset':
@@ -79,6 +94,7 @@ class FormController extends Controller
                 "form_detail_quantity" => "required",
                 "form_detail_done_by" => "required",
                 "form_detail_remark" => "nullable",
+                "form_detail_end_date" => "required",
                 "form_detail_oum" => "required",
             ])->setAttributeNames([
                 "form_detail_date" => "Date",
@@ -99,6 +115,7 @@ class FormController extends Controller
                     "form_detail_done_by" =>  $request->input('form_detail_done_by'),
                     "form_detail_remark" =>  $request->input('form_detail_remark'),
                     "form_detail_oum" => $request->input('form_detail_oum'),
+                    "form_detail_end_date" => $request->input('form_detail_end_date'),
                     "form_id" =>  $id,
                 ]);
                 Session::flash('success_msg', 'Successfully added ' . $form->form_name);

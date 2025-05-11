@@ -33,6 +33,11 @@ class Form extends Model
         if ($user) {
             $department = Form::query()
                 ->where("department_equipment_id", $id)
+                ->when(!empty($search['keywords']), function ($query) use ($search) {
+                    $query->where(function ($q) use ($search) {
+                        $q->where('form_name', 'like', '%' . $search['keywords'] . '%');
+                    });
+                })
                 ->paginate($perpage);
             return $department;
         }

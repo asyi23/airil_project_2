@@ -30,12 +30,30 @@ class CompanyBranchController extends Controller
     }
     public function listing(Request $request, $id)
     {
-        $department = Department::where('department_id', $id)->first();
         $search = array();
+        $department = Department::where('department_id', $id)->first();
+        if ($request->isMethod('post')) {
+            $submit = $request->input('submit');
+
+            switch ($submit) {
+                case 'search':
+                    session(['department_equipment_search' => [
+                        'keywords' => $request->input('keywords'),
+                    ]]);
+                    break;
+                case 'reset':
+                    session()->forget('department_equipment_search');
+                    break;
+            }
+        }
+        $search = session('department_equipment_search') ? session('department_equipment_search') : $search;
+
         return view('company_branch.listing', [
             'id' => $id,
             'department' => $department,
             'records' => DepartmentEquipment::get_record($search, 15, $id),
+            'search' =>  $search,
+            'submit' => route('company_branch_listing', $id),
         ]);
     }
 

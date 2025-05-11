@@ -95,6 +95,43 @@
 </div>
 <!-- end page title -->
 
+<!-- start seacrh page -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <form method="POST" action="{{ $submit }}">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="keywords">Keywords</label>
+                                        <input type="text" id="keywords" class="form-control" name="keywords" value="{{ @$search['keywords'] }}" placeholder="Keywords">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button type="submit" class="btn btn-primary  waves-effect waves-light mr-2"
+                                        name="submit" value="search">
+                                        <i class="fas fa-search mr-1"></i> Search
+                                    </button>
+                                    <button type="submit" class="btn btn-danger  waves-effect waves-light mr-2"
+                                        name="submit" value="reset">
+                                        <i class="fas fa-times mr-1"></i> Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-12">
         <div class="card">

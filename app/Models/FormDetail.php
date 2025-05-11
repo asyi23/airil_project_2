@@ -42,6 +42,12 @@ class FormDetail extends Model
                         $q->whereBetween('form_detail_date', [$search['start_date'], $search['end_date']]);
                     });
                 })
+                ->when(!empty($search['keywords']), function ($query) use ($search) {
+                    $query->where(function ($q) use ($search) {
+                        $q->where('form_detail_order_no', 'like', '%' . $search['keywords'] . '%');
+                    });
+                })
+
                 ->where("form_id", $id)
                 ->paginate($perpage);
             return $form_detail;
@@ -51,6 +57,11 @@ class FormDetail extends Model
     public static function get_record_quantity($search, $perpage, $id)
     {
         $form_detail_quantity = FormDetail::query()
+            ->when(!empty($search['start_date']) && !empty($search['end_date']), function ($query) use ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->whereBetween('form_detail_date', [$search['start_date'], $search['end_date']]);
+                });
+            })
             ->when(!empty($search['start_date']) && !empty($search['end_date']), function ($query) use ($search) {
                 $query->where(function ($q) use ($search) {
                     $q->whereBetween('form_detail_date', [$search['start_date'], $search['end_date']]);
