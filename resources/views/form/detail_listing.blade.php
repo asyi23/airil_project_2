@@ -80,7 +80,9 @@
     <div class="col-12">
         <div class="page-title-box d-md-flex align-items-center justify-content-between">
             <h4 class="mb-0 font-size-18"><span>Part Listing&nbsp;</span>
+                @canany(['form_detail_manage'])
                 <a href="{{ route('form_detail_add',$id )}}" class="btn btn-sm btn-outline-success waves-effect waves-light mr-2 mb-1"><i class="fas fa-plus"></i> Add New Part</a>
+                @endcanany
             </h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
@@ -218,12 +220,14 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Date</th>
+                                    <th>End Date</th>
                                     <th>Order No</th>
                                     <th>Quantity</th>
                                     <th>OUM</th>
-                                    <th>Done By</th>
                                     <th>Remarks</th>
+                                    @canany(['form_detail_manage'])
                                     <th>Action</th>
+                                    @endcanany
                                 </tr>
                             </thead>
                             @php
@@ -237,6 +241,9 @@
                                         <b>{{ @$rows->form_detail_date }}</b>
                                     </td>
                                     <td>
+                                        <b>{{ @$rows->form_detail_end_date }}</b>
+                                    </td>
+                                    <td>
                                         <b>{{ @$rows->form_detail_order_no }}</b>
                                     </td>
                                     <td>
@@ -246,12 +253,9 @@
                                         <b>{{ @$rows->form_detail_oum }}</b>
                                     </td>
                                     <td>
-                                        <b>{{ @$rows->form_detail_done_by }}</b>
-                                    </td>
-                                    <td>
                                         <b>{{ @$rows->form_detail_remark }}</b>
                                     </td>
-                                    <td>
+                                    @canany(['form_detail_manage']) <td>
                                         <div class="button-container" style="display: flex;gap:10px;">
                                             <a href=" {{ route('form_detail_edit', $rows->form_detail_id) }}"
                                                 class='btn btn-sm btn-outline-primary waves-effect waves-light'>Edit</a>
@@ -261,6 +265,7 @@
                                                     class='btn btn-sm btn-outline-danger waves-effect waves-light'>Delete</a></span>
                                         </div>
                                     </td>
+                                    @endcanany
                                 </tr>
                                 @empty
                                 <tr>

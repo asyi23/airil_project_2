@@ -159,7 +159,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="form_detail_order_no">Order No<span class="text-danger">*</span></label>
-                                <input name="form_detail_order_no" type="text" maxlength="100" class="form-control" value="{{$form_detail->form_detail_order_no}}" readonly>
+                                <input name="form_detail_order_no" type="text" maxlength="100" class="form-control" value="{{$form_detail->form_detail_order_no}}">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -170,14 +170,14 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="form_detail_quantity">Quantity<span class="text-danger">*</span></label>
-                                <input name="form_detail_quantity" type="text" maxlength="100" class="form-control" value="{{$form_detail->form_detail_quantity}}">
+                                <label for="form_detail_end_date">End Date<span class="text-danger">*</span></label>
+                                <input name="form_detail_end_date" type="date" maxlength="100" class="form-control" value="{{$form_detail->form_detail_end_date}}">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="form_detail_done_by">Done By<span class="text-danger">*</span></label>
-                                <input name="form_detail_done_by" type="text" maxlength="100" class="form-control" value="{{$form_detail->form_detail_done_by}}">
+                                <label for="form_detail_quantity">Quantity<span class="text-danger">*</span></label>
+                                <input name="form_detail_quantity" type="text" maxlength="100" class="form-control" value="{{$form_detail->form_detail_quantity}}">
                             </div>
                         </div>
                         <div class="col-sm-6">

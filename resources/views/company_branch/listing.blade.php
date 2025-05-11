@@ -76,7 +76,9 @@
     <div class="col-12">
         <div class="page-title-box d-md-flex align-items-center justify-content-between">
             <h4 class="mb-0 font-size-18"><span>Department Equipment Listing&nbsp;</span>
+                @canany(['department_manage'])
                 <a href="{{route('company_branch_add', $id)}}" class="btn btn-sm btn-outline-success waves-effect waves-light mr-2 mb-1"><i class="fas fa-plus"></i> Add New Equipment</a>
+                @endcanany
             </h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
@@ -175,12 +177,15 @@
                                     <td>
                                         <div class="button-container" style="display: flex;gap:10px">
                                             <a href="{{ route('form_listing', $rows->department_equipment_id) }}" class="btn btn-sm btn-outline-primary mb-2">Manage Part </a>
-                                            <span><a href=" {{ route('department_equipment_edit', $rows->department_equipment_id) }}"
+                                            <span>
+                                                @canany(['department_manage'])
+                                                <a href=" {{ route('department_equipment_edit', $rows->department_equipment_id) }}"
                                                     class='btn btn-sm btn-outline-primary waves-effect waves-light'>Edit</a></span>
                                             <span data-toggle='modal' data-target='#delete'
                                                 data-id="{{ $rows->department_equipment_id }}" class='delete'><a
                                                     href='javascript:void(0);'
                                                     class='btn btn-sm btn-outline-danger waves-effect waves-light'>Delete</a></span>
+                                            @endcanany
                                         </div>
                                     </td>
                                 </tr>

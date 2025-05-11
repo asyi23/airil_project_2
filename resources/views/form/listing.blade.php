@@ -80,7 +80,9 @@
     <div class="col-12">
         <div class="page-title-box d-md-flex align-items-center justify-content-between">
             <h4 class="mb-0 font-size-18"><span>Part Listing&nbsp;</span>
+                @canany(['form_manage'])
                 <a href="{{ route('form_add',$id )}}" class="btn btn-sm btn-outline-success waves-effect waves-light mr-2 mb-1"><i class="fas fa-plus"></i> Add New Form</a>
+                @endcanany
             </h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
@@ -190,14 +192,18 @@
                                     <td>
                                         <div class="button-container" style="display: flex;gap:10px">
                                             <a href="{{ route('form_detail_listing', $rows->form_id) }}" class="btn btn-sm btn-outline-primary mb-2">Manage Form </a>
-                                            <span><a href=" {{ route('form_edit', $rows->form_id) }}"
+                                            <span>
+                                                @canany(['form_manage'])
+                                                <a href=" {{ route('form_edit', $rows->form_id) }}"
                                                     class='btn btn-sm btn-outline-primary waves-effect waves-light'>Edit</a></span>
                                             <span data-toggle='modal' data-target='#delete'
                                                 data-id="{{ $rows->form_id }}" class='delete'><a
                                                     href='javascript:void(0);'
                                                     class='btn btn-sm btn-outline-danger waves-effect waves-light'>Delete</a></span>
+                                            @endcanany
                                         </div>
                                     </td>
+
                                 </tr>
                                 @empty
                                 <tr>

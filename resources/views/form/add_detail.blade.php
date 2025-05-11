@@ -156,8 +156,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="form_detail_done_by">End Date<span class="text-danger">*</span></label>
-                                <input name="form_detail_done_by" type="date" maxlength="100" class="form-control">
+                                <label for="form_detail_end_date">End Date<span class="text-danger">*</span></label>
+                                <input name="form_detail_end_date" type="date" maxlength="100" class="form-control">
                             </div>
                         </div>
                         <div class="col-sm-6">
