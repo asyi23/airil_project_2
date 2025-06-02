@@ -76,9 +76,6 @@
     <div class="col-12">
         <div class="page-title-box d-md-flex align-items-center justify-content-between">
             <h4 class="mb-0 font-size-18"><span>Department Equipment Listing&nbsp;</span>
-                @php
-                dd(auth()->user()->canAny(['department_manage']));
-                @endphp
                 @canany(['department_manage'])
                 <a href="{{route('company_branch_add', $id)}}" class="btn btn-sm btn-outline-success waves-effect waves-light mr-2 mb-1"><i class="fas fa-plus"></i> Add New Equipment</a>
                 @endcanany
