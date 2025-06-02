@@ -6,14 +6,18 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FormDetail extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'tbl_form_detail';
     protected $primaryKey = 'form_detail_id';
 
     const CREATED_AT = 'form_detail_created';
     const UPDATED_AT = 'form_detail_updated';
+    const DELETED_AT = 'deleted_at';
     protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $fillable = [
@@ -49,6 +53,17 @@ class FormDetail extends Model
                 })
 
                 ->where("form_id", $id)
+                ->paginate($perpage);
+            return $form_detail;
+        }
+    }
+
+    public static function get_record_delete($search, $perpage, $id)
+    {
+        $user = Auth::user();
+        if ($user) {
+            $form_detail = FormDetail::onlyTrashed()
+                ->where('form_id', $id)
                 ->paginate($perpage);
             return $form_detail;
         }

@@ -79,7 +79,7 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-md-flex align-items-center justify-content-between">
-            <h4 class="mb-0 font-size-18"><span>Part Listing&nbsp;</span>
+            <h4 class="mb-0 font-size-18"><span>Deleted Part Listing&nbsp;</span>
                 @canany(['form_detail_manage'])
                 <a href="{{ route('form_detail_add',$id )}}" class="btn btn-sm btn-outline-success waves-effect waves-light mr-2 mb-1"><i class="fas fa-plus"></i> Add New Part</a>
                 @endcanany
@@ -87,7 +87,7 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">
-                        <a href="javascript: void(0);">PART</a>
+                        <a href="javascript: void(0);"> DELETED PART</a>
                     </li>
                     <li class="breadcrumb-item active">Listing</li>
                 </ol>
@@ -187,31 +187,6 @@
         </div>
     </div>
 </div>
-
-
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="table-rep-plugin">
-                    <div class="table-responsive mb-0" data-pattern="priority-columns">
-                        <div class="button-container" style="display: flex;gap:10px;">
-                            <form action="{{ route('form_detail_download',['id' => $form->form_id, 'start_date' => $search['start_date'] ?? null, 'end_date' => $search['end_date'] ?? null]) }}" method="GET">
-                                <button type="submit" class="btn btn-success">Download PDF</button>
-                            </form>
-                            <form action="{{ route('form_detail_delete_listing',$form->form_id) }}" method="GET">
-                                <button type="submit" class="btn btn-warning">Delete Recently</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Page-content -->
-
-</div>
-
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -260,12 +235,10 @@
                                     </td>
                                     @canany(['form_detail_manage']) <td>
                                         <div class="button-container" style="display: flex;gap:10px;">
-                                            <a href=" {{ route('form_detail_edit', $rows->form_detail_id) }}"
-                                                class='btn btn-sm btn-outline-primary waves-effect waves-light'>Edit</a>
                                             <span data-toggle='modal' data-target='#delete'
                                                 data-id="{{ $rows->form_detail_id }}" class='delete'><a
                                                     href='javascript:void(0);'
-                                                    class='btn btn-sm btn-outline-danger waves-effect waves-light'>Delete</a></span>
+                                                    class='btn btn-sm btn-outline-danger waves-effect waves-light'>Undo Delete</a></span>
                                         </div>
                                     </td>
                                     @endcanany
@@ -292,15 +265,15 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form method="POST" action="{{ route('form_detail_delete') }}">
+                <form method="POST" action="{{ route('form_detail_undo_delete') }}">
                     @csrf
                     <div class="modal-body">
-                        <h4>Delete this order no ?</h4>
+                        <h4>Undo Delete this order no ?</h4>
                         <input type="hidden" , name="form_detail_id" id="form_detail_id">
                         <input type="hidden" , name="action" value="delete">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Undo Delete</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </div>
                 </form>
@@ -310,30 +283,6 @@
     <div id="logoModal" class="modal">
         <span class="closebtn" style="color: white">&times;</span>
         <img src="" alt="" id="img">
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <form method="POST" action="{{ $submit }}">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="page-title-box d-md-flex align-items-center justify-content-between">
-                                        <h4 class="mb-0 font-size-18"><span>Total Part : &nbsp;</span>
-                                            <b>{{ @$total_record }}</b>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

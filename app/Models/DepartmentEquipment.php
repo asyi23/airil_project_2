@@ -2,17 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Role;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DepartmentEquipment extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'tbl_department_equipment';
     protected $primaryKey = 'department_equipment_id';
 
     const CREATED_AT = 'department_equipment_created';
     const UPDATED_AT = 'department_equipment_updated';
+    const DELETED_AT = 'deleted_at';
+
     protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $fillable = [

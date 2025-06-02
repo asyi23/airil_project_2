@@ -277,6 +277,23 @@ class FormController extends Controller
         return redirect()->route('form_listing', $form->department_equipment_id);
     }
 
+    public function undo_delete(Request $request)
+    {
+        $form_detail = FormDetail::onlyTrashed()->find($request->input('form_detail_id'));
+        $form_id = $form_detail->form_id;
+
+        if (!$form_detail) {
+            Session::flash('fail_msg', 'Error, Please try again later..');
+            return redirect('/');
+        }
+
+        $form_detail
+            ->restore();
+
+        Session::flash('success_msg', "Successfully undo delete order no ." . $form_detail->form_detail_order_no);
+        return redirect()->route('form_detail_listing', $form_id);
+    }
+
     public function delete_form_details(Request $request)
     {
         $owner = Auth::user();
@@ -306,5 +323,36 @@ class FormController extends Controller
         $pdf = Pdf::loadView('form.pdf_detail', compact('form_detail', 'form', 'total_form_detail', 'measurement'));
 
         return $pdf->stream('form_details.pdf'); // 👈 View in browser
+    }
+
+    public function delete_listing(Request $request, $id)
+    {
+        $search = array();
+        $form = Form::find($id);
+        if ($request->isMethod('post')) {
+            $submit = $request->input('submit');
+
+            switch ($submit) {
+                case 'search':
+                    session(['form_search' => [
+                        'keywords' => $request->input('keywords'),
+                    ]]);
+                    break;
+                case 'reset':
+                    session()->forget('form_search');
+                    break;
+            }
+        }
+        $search = session('form_search') ? session('form_search') : $search;
+        return view('form.form_detail_delete_listing', [
+            'submit' => route('form_detail_delete_listing', $id),
+            // 'submit_new' => route('form_add', $id),
+            'title' => 'Add',
+            'records' => FormDetail::get_record_delete($search, 15, $id),
+            'form' => $form,
+            'search' =>  $search,
+            'id' => $id,
+
+        ]);
     }
 }
