@@ -241,10 +241,10 @@
                                 <tr>
                                     <th>{{$no++}}</th>
                                     <td>
-                                        <b>{{ @$rows->form_detail_date }}</b>
+                                        <b>{{ \Carbon\Carbon::parse(@$rows->form_detail_date)->format('Y-m-d') }}</b>
                                     </td>
                                     <td>
-                                        <b>{{ @$rows->form_detail_end_date }}</b>
+                                        <b>{{ \Carbon\Carbon::parse(@$rows->form_detail_end_date)->format('Y-m-d') }}</b>
                                     </td>
                                     <td>
                                         <b>{{ @$rows->form_detail_order_no }}</b>

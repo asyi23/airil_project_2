@@ -29,8 +29,8 @@ class User extends Authenticatable implements HasMedia
     protected $table = 'tbl_user';
     protected $primaryKey = 'user_id';
 
-    const CREATED_AT = 'user_created';
-    const UPDATED_AT = 'user_updated';
+    const CREATED_AT = 'user_cdate';
+    const UPDATED_AT = 'user_udate';
     protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $fillable = [
