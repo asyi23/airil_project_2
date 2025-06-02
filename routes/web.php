@@ -2,8 +2,10 @@
 
 use App\Models\User;
 use App\Models\Company;
+use App\Models\UserType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/version', function () {
@@ -25,7 +27,9 @@ Route::match(['get', 'post'], 'form_detail/listing/{id}', 'FormController@form_d
 Route::match(['get', 'post'], 'form_detail_add/add/{id}', 'FormController@form_detail_add')->name('form_detail_add');
 Route::match(['get', 'post'], 'form_detail_edit/add/{id}', 'FormController@form_detail_edit')->name('form_detail_edit');
 Route::match(['get', 'post'], 'form_detail_edit/delete', 'FormController@delete_form_details')->name('form_detail_delete');
+Route::match(['get', 'post'], 'form_detail_edit/undo_delete', 'FormController@undo_delete')->name('form_detail_undo_delete');
 Route::match(['get', 'post'], 'form_detail_edit/download/{id}/{start_date?}/{end_date?}', 'FormController@download_form_details')->name('form_detail_download');
+Route::match(['get', 'post'], 'form_detail/delete/listing/{id}', 'FormController@delete_listing')->name('form_detail_delete_listing');
 
 /**** Admin Profile Management ****/
 Route::match(['get', 'post'], 'admin/profile', 'AdminController@profile')->name('admin_profile');
