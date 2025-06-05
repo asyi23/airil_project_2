@@ -118,6 +118,10 @@
                                         name="submit" value="reset">
                                         <i class="fas fa-times mr-1"></i> Reset
                                     </button>
+                                    <a href="{{ route('company_listing') }}"
+                                        class="btn btn-success  waves-effect waves-light mr-2">
+                                        ← Back
+                                    </a>
                                 </div>
                             </div>
                         </form>
