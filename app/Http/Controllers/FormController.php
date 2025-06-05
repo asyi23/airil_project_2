@@ -30,6 +30,9 @@ class FormController extends Controller
                     session()->forget('form_search');
                     break;
             }
+        } else {
+            // If it's a GET request, clear the search session
+            session()->forget('form_search');
         }
         $search = session('form_search') ? session('form_search') : $search;
         return view('form.listing', [
@@ -64,6 +67,9 @@ class FormController extends Controller
                     session()->forget('form_detail_search');
                     break;
             }
+        } else {
+            // If it's a GET request, clear the search session
+            session()->forget('form_detail_search');
         }
         $search = session('form_detail_search') ? session('form_detail_search') : $search;
         // dd(FormDetail::get_record($search, 15, $id));

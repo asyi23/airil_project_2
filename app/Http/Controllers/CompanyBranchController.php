@@ -45,6 +45,9 @@ class CompanyBranchController extends Controller
                     session()->forget('department_equipment_search');
                     break;
             }
+        } else {
+            // If it's a GET request, clear the search session
+            session()->forget('department_equipment_search');
         }
         $search = session('department_equipment_search') ? session('department_equipment_search') : $search;
 
