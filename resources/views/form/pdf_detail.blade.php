@@ -68,7 +68,7 @@
         <tr>
             <td>{{ $no++}} </td>
             <td>{{ \Carbon\Carbon::parse($detail->form_detail_date)->format('d-m-Y') }}</td>
-            <td>{{ @$detail->form_detail_end_date }}</td>
+            <td>{{ \Carbon\Carbon::parse($detail->form_detail_end_date)->format('d-m-Y') }}</td>
             <td>{{ @$detail->form_detail_order_no }}</td>
             <td>{{ @$detail->form_detail_quantity }}</td>
             <td>{{ @$detail->form_detail_oum }}</td>
