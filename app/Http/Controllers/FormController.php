@@ -230,9 +230,9 @@ class FormController extends Controller
         $validator = null;
         $post = null;
         $form = Form::where('form_id', $id)->first();
-        $submit = route('form_add', $id);
-        if (!$department_equipment) {
-            Session::flash('fail_msg', 'Invalid Company Branch, Please try again later..');
+        $submit = route('form_edit', $id);
+        if (!$form) {
+            Session::flash('fail_msg', 'Invalid Form, Please try again later..');
             return redirect()->route('company_branch_listing', $id);
         }
 
@@ -253,12 +253,13 @@ class FormController extends Controller
             }
             $post = (object) $request->all();
         }
-        return view('company_branch/edit_form', [
+
+        return view('form/edit', [
             'title' => 'Edit',
             'submit' => $submit,
             'is_edit' => true,
             'post' => $post,
-            'department_equipment' => $department_equipment,
+            'form' => $form,
         ])->withErrors($validator);
     }
 

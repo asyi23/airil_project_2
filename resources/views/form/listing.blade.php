@@ -231,7 +231,10 @@
                     @csrf
                     <div class="modal-body">
                         <h4>Delete this part ?</h4>
-                        <input type="hidden" , name="department_equipment_id" id="department_equipment_id">
+                        @php
+                        $rows->form_id
+                        @endphp
+                        <input type="hidden" , name="form_id" id="form_id">
                         <input type="hidden" , name="action" value="delete">
                     </div>
                     <div class="modal-footer">
@@ -241,84 +244,25 @@
                 </form>
             </div>
         </div>
-        <!-- End Page-content -->
-        <div class="modal fade" id="suspend" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <form method="POST" action="{{ route('company_status')}}">
-                        @csrf
-                        <div class="modal-body">
-                            <h4 style="margin-bottom: 10px">Suspend this company ?</h4>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="company_remark" style="font-size: 14px">Remark<span class="text-danger">*</span></label>
-                                        <input id="company_remark" name="company_remark" type="text" class="form-control input-mask text-left" im-insert="true" style="text-align: right;margin-bottom:-10px;" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" name="company_id" id="company_id">
-                            <input type="hidden" name="action" value="suspend">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-danger">Suspend</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="activate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <form method="POST" action="{{ route('company_status') }}">
-                        @csrf
-                        <div class="modal-body">
-                            <h4>Activate this company ?</h4>
-                            <input type="hidden" name="company_id" id="company_id">
-                            <input type="hidden" , name="action" value="activate">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Activate</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="listingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">User Listing</h5>
-                        <span class="close" id="closeModalBtn" data-dismiss="modal" style="cursor: pointer;font-weight:bold;font-size:30px;">&times;</span>
-                    </div>
-                    <div class="modal-body">
-                        <input type="hidden" id="company-id-input" value="">
-                        <input type="search" class="form-control" name="search" id="search" placeholder="Search by Full Name/Username/Email/Branch" style="margin-bottom: 10px">
-                        <div id="user-listing-data-placeholder"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="logoModal" class="modal">
-            <span class="closebtn" style="color: white">&times;</span>
-            <img src="" alt="" id="img">
-        </div>
-        @endsection
+    </div>
+    <div id="logoModal" class="modal">
+        <span class="closebtn" style="color: white">&times;</span>
+        <img src="" alt="" id="img">
+    </div>
+    @endsection
 
-        @section('script')
-        <script type="text/javascript" src="{{ URL::asset('assets/fancybox-2.1.7/lib/jquery.mousewheel.pack.js')}}"></script>
-        <script type="text/javascript" src="{{ URL::asset('assets/fancybox-2.1.7/source/jquery.fancybox.js')}}"></script>
-        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-        <script>
-            $(document).ready(function(e) {
-                //$("#user_role").hide();
-                $('.delete').on('click', function() {
-                    var id = $(this).attr('data-id');
-                    console.log(id);
-                    $(".modal-body #form_detail_id").val(id);
-                });
+    @section('script')
+    <script type="text/javascript" src="{{ URL::asset('assets/fancybox-2.1.7/lib/jquery.mousewheel.pack.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('assets/fancybox-2.1.7/source/jquery.fancybox.js')}}"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script>
+        $(document).ready(function(e) {
+            //$("#user_role").hide();
+            $('.delete').on('click', function() {
+                var id = $(this).attr('data-id');
+                console.log(id);
+                $(".modal-body #form_id").val(id);
             });
-        </script>
-        @endsection
+        });
+    </script>
+    @endsection

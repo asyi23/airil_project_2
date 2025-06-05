@@ -19,7 +19,7 @@ Route::match(['get', 'post'], '/', 'AdminController@dashboard')->name('dashboard
 
 Route::match(['get', 'post'], 'form/listing/{id}', 'FormController@listing')->name('form_listing');
 Route::match(['get', 'post'], 'form/add/{id}', 'FormController@add')->name('form_add');
-Route::match(['get', 'post'], 'form/edit/{id}', 'FormController@add')->name('form_edit');
+Route::match(['get', 'post'], 'form/edit/{id}', 'FormController@edit')->name('form_edit');
 Route::match(['get', 'post'], 'form/delete', 'FormController@delete')->name('form_delete');
 Route::match(['get', 'post'], 'form/a/{id}', 'FormController@delete')->name('admin_change_password');
 
