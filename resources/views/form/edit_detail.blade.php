@@ -183,7 +183,11 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="form_detail_remark">Remark<span class="text-danger">*</span></label>
-                                <input name="form_detail_remark" type="text" maxlength="100" class="form-control" value="{{$form_detail->form_detail_remark}}">
+                                <textarea name="form_detail_remark"
+                                    maxlength="100"
+                                    class="form-control auto-resize"
+                                    rows="1"
+                                    oninput="autoResize(this)">{{$form_detail->form_detail_remark}}</textarea>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -568,6 +572,11 @@
         var modal = document.getElementById("Modal");
         modal.style.display = "none";
     });
+
+    function autoResize(textarea) {
+        textarea.style.height = 'auto'; // Reset height
+        textarea.style.height = textarea.scrollHeight + 'px'; // Set new height
+    }
 </script>
 {{-- Google API --}}
 <script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&libraries=places&callback=initAutocomplete" async defer></script>
