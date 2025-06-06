@@ -235,9 +235,6 @@
                     @csrf
                     <div class="modal-body">
                         <h4>Delete this part ?</h4>
-                        @php
-                        $rows->form_id
-                        @endphp
                         <input type="hidden" , name="form_id" id="form_id">
                         <input type="hidden" , name="action" value="delete">
                     </div>
