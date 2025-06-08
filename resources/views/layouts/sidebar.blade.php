@@ -15,7 +15,7 @@
                         <li><a href="{{ route('company_listing') }}">Maintenance</a></li>
                     </ul>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('company_listing') }}">Safety and Health</a></li>
+                        <li><a href="{{ route('saftey_and_health_listing') }}">Safety and Health</a></li>
                     </ul>
                 </li>
                 <li>

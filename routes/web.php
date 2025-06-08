@@ -64,6 +64,10 @@ Route::group(['middleware' => ['permission:admin_role_manage']], function () {
 /**** Company Section ****/
 // Route::group(['middleware' => ['permission:company_listing_all']], function () {
 Route::match(['get', 'post'], 'department/listing', 'CompanyController@listing')->name('company_listing');
+Route::match(['get', 'post'], 'saftey_and_health/listing', 'SafetyAndHealthController@listing')->name('saftey_and_health_listing');
+Route::match(['get', 'post'], 'saftey_and_health/listing_record/{id}', 'SafetyAndHealthRecordController@listing')->name('saftey_and_health_record_listing');
+Route::match(['get', 'post'], 'saftey_and_health/add_record/{id}', 'SafetyAndHealthRecordController@add')->name('saftey_and_health_record_add');
+
 Route::match(['get', 'post'], 'company/view/{id}/about_us', 'CompanyController@view_about_us')->name('company_view_about_us');
 // });
 Route::group(['middleware' => ['permission:company_manage_all']], function () {
