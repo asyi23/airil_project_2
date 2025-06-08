@@ -119,6 +119,20 @@
                                     <td>
                                         <b>{{ @$rows->safety_and_health_record_name }}</b>
                                     </td>
+                                    <td>
+                                        <div class="button-container" style="display: flex;gap:10px">
+                                            <span>
+
+                                                <a href=" {{ route('saftey_and_health_record_edit', $rows->safety_and_health_record_id) }}"
+                                                    class='btn btn-sm btn-outline-primary waves-effect waves-light'>Edit</a></span>
+                                            <span data-toggle='modal' data-target='#delete'
+                                                data-id="{{ $rows->safety_and_health_record_id }}" class='delete'><a
+                                                    href='javascript:void(0);'
+                                                    class='btn btn-sm btn-outline-danger waves-effect waves-light'>Delete</a></span>
+
+                                        </div>
+                                    </td>
+
                                 </tr>
                                 @empty
                                 <tr>
@@ -195,6 +209,25 @@
                     <input type="search" class="form-control" name="search" id="search" placeholder="Search by Full Name/Username/Email/Branch" style="margin-bottom: 10px">
                     <div id="user-listing-data-placeholder"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form method="POST" action="{{ route('saftey_and_health_record_delete') }}">
+                    @csrf
+                    <div class="modal-body">
+                        <h4>Delete this record ?</h4>
+                        <input type="hidden" , name="safety_and_health_record_id" id="safety_and_health_record_id">
+                        <input type="hidden" , name="action" value="delete">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -304,6 +337,16 @@
                 $('#search').val('');
                 $("#user-listing tbody tr").show();
                 console.log("g");
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(e) {
+            //$("#user_role").hide();
+            $('.delete').on('click', function() {
+                var id = $(this).attr('data-id');
+                console.log(id);
+                $(".modal-body #safety_and_health_record_id").val(id);
             });
         });
     </script>

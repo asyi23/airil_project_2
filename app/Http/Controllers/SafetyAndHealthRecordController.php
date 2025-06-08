@@ -81,4 +81,57 @@ class SafetyAndHealthRecordController extends Controller
             'safety_and_health' => $safety_and_health
         ])->withErrors($validator);
     }
+
+    public function edit(Request $request, $id)
+    {
+        $validator = null;
+        $post = null;
+        $safety_and_health_record = SafetyAndHealthRecord::where('safety_and_health_record_id', $id)->first();
+        $submit = route('saftey_and_health_record_edit', $id);
+        if (!$safety_and_health_record) {
+            Session::flash('fail_msg', 'Invalid Safety and health record, Please try again later..');
+            return redirect()->route('saftey_and_health_record_listing', $safety_and_health_record->safety_and_health_id);
+        }
+
+        if ($request->isMethod('post')) {
+            $validator = Validator::make(array_merge($request->all(), ['user_type_id' => Auth::user()->user_type_id]), [
+                'safety_and_health_record_name' => 'required',
+            ])->setAttributeNames([
+                'safety_and_health_record_name' => 'Safety and Health record name',
+            ]);
+
+            if (!$validator->fails()) {
+                $safety_and_health_record->update([
+                    'safety_and_health_record_name' => $request->input('safety_and_health_record_name'),
+                ]);
+                Session::flash('success_msg', 'Successfully edit ' . $safety_and_health_record->safety_and_health_record_name);
+
+                return redirect()->route('saftey_and_health_record_listing', $safety_and_health_record->safety_and_health_id);
+            }
+            $post = (object) $request->all();
+        }
+
+        return view('safety_and_health/edit_record', [
+            'title' => 'Edit',
+            'submit' => $submit,
+            'is_edit' => true,
+            'post' => $post,
+            'safety_and_health_record' => $safety_and_health_record,
+        ])->withErrors($validator);
+    }
+
+    public function delete(Request $request)
+    {
+        $user = Auth::user();
+        $safety_and_health_record = SafetyAndHealthRecord::find($request->input('safety_and_health_record_id'));
+        if (!$safety_and_health_record) {
+            Session::flash('fail_msg', 'Error, Please try again later..');
+            return redirect()->route('saftey_and_health_record_listing', $safety_and_health_record->safety_and_health_id);
+        }
+
+        $safety_and_health_record->delete();
+
+        Session::flash('success_msg', "Successfully delete " . $safety_and_health_record->safety_and_health_record_name);
+        return redirect()->route('saftey_and_health_record_listing', $safety_and_health_record->safety_and_health_id);
+    }
 }

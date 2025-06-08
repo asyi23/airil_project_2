@@ -67,6 +67,8 @@ Route::match(['get', 'post'], 'department/listing', 'CompanyController@listing')
 Route::match(['get', 'post'], 'saftey_and_health/listing', 'SafetyAndHealthController@listing')->name('saftey_and_health_listing');
 Route::match(['get', 'post'], 'saftey_and_health/listing_record/{id}', 'SafetyAndHealthRecordController@listing')->name('saftey_and_health_record_listing');
 Route::match(['get', 'post'], 'saftey_and_health/add_record/{id}', 'SafetyAndHealthRecordController@add')->name('saftey_and_health_record_add');
+Route::match(['get', 'post'], 'saftey_and_health/edit_record/{id}', 'SafetyAndHealthRecordController@edit')->name('saftey_and_health_record_edit');
+Route::match(['get', 'post'], 'saftey_and_health/delete_record', 'SafetyAndHealthRecordController@delete')->name('saftey_and_health_record_delete');
 
 Route::match(['get', 'post'], 'company/view/{id}/about_us', 'CompanyController@view_about_us')->name('company_view_about_us');
 // });
