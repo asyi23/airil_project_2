@@ -69,6 +69,9 @@ class FormController extends Controller
             }
         } else {
             // If it's a GET request, clear the search session
+            $search = session('form_detail_search', []);
+            unset($search['keywords']); // Or $search['keywords'] = null;
+            session(['form_detail_search' => $search]);
             session()->forget('form_detail_search');
         }
         $search = session('form_detail_search') ? session('form_detail_search') : $search;

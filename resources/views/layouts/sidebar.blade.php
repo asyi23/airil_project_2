@@ -12,7 +12,10 @@
                         <span>Department</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('company_listing') }}">Deparment Listing</a></li>
+                        <li><a href="{{ route('company_listing') }}">Maintenance</a></li>
+                    </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('company_listing') }}">Safety and Health</a></li>
                     </ul>
                 </li>
                 <li>

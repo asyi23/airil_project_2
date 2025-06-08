@@ -31,7 +31,7 @@
 <body>
     <table>
         <td style="width: 60px;vertical-align: top;">
-            <img src="assets/images/airil_logo.jpeg" height="60" width="auto" alt="" />
+            <img src="assets/images/airil_logo.jpeg" height="100" width="auto" alt="" />
         </td>
         <td style="vertical-align: top;margin: 0;padding: 0;">
             <p class="gamalux-title" style="font-size: 30px;color: green;; margin: 0;">
