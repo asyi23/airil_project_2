@@ -3,12 +3,24 @@
 @section('title') {{ $title }} Company @endsection
 @section('css')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/select2/select2.min.css') }}">
+<link rel="stylesheet" type="text/css"
+    href="{{ URL::asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
+<link rel="stylesheet" type="text/css"
+    href="{{ URL::asset('assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css') }}">
+<link rel="stylesheet" type="text/css"
+    href="{{ URL::asset('assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/dropzone/dropzone.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('assets/css/jquery-ui.css') }}">
+
+<link rel="stylesheet" href="{{ URL::asset('assets/css/filepond.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('assets/css/filepond-plugin-image-preview.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('assets/css/filepond-plugin-image-edit.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('assets/css/filepond-plugin-file-poster.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('assets/css/doka.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/libs/summernote/summernote.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/css/jquery.fancybox.min.css') }}">
 
 <style>
     .combined-input {
@@ -172,10 +184,11 @@
                                 <input name="form_detail_order_no" type="text" maxlength="100" class="form-control">
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="form_detail_remark">Remark<span class="text-danger">*</span></label>
-                                <input name="form_detail_remark" type="text" maxlength="100" class="form-control">
+                                <textarea id="summernote" name="form_detail_remark" type="text" class="form-control"
+                                    rows="10"></textarea>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -219,26 +232,40 @@
 </div>
 @endsection
 @section('script')
-<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script>
+<script src="{{ URL::asset('assets/libs/parsleyjs/parsleyjs.min.js') }}"></script>
 <!-- Plugins js -->
-<script src="{{ URL::asset('assets/js/pages/form-validation.init.js')}}"></script>
+<script src="{{ URL::asset('assets/libs/select2/select2.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/dropzone/dropzone.min.js') }}"></script>
+<script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/custom.js') }}"></script>
+<script src="{{ URL::asset('assets/js/jquery-ui.js') }}"></script>
 
-<script src="{{ URL::asset('assets/libs/select2/select2.min.js')}}"></script>
-<script src="{{ URL::asset('assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{ URL::asset('assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js')}}"></script>
-<script src="{{ URL::asset('assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js')}}"></script>
-<script src="{{ URL::asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
-<script src="{{ URL::asset('assets/js/pages/form-advanced.init.js')}}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-image-preview.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-image-resize.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-image-transform.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-image-crop.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-image-edit.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-file-poster.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-image-exif-orientation.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-file-validate-size.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond-plugin-file-validate-type.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filepond/filepond.js') }}"></script>
+<script src="{{ URL::asset('assets/js/doka.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/autosize.js') }}"></script>
+
 <script src="{{ URL::asset('assets/libs/summernote/summernote.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/summernote-image-attributes.js') }}"></script>
-<script src="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
-
-
 <!-- form mask -->
-<script src="{{ URL::asset('assets/libs/inputmask/inputmask.min.js')}}"></script>
+<script src="{{ URL::asset('assets/libs/inputmask/inputmask.min.js') }}"></script>
 
 <!-- form mask init -->
-<script src="{{ URL::asset('assets/js/pages/form-mask.init.js')}}"></script>
+<script src="{{ URL::asset('assets/js/pages/form-mask.init.js') }}"></script>
+
+<script src="{{ URL::asset('assets/js/jquery.fancybox.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         $('#branch_country_dialcode').select2({
@@ -305,61 +332,7 @@
         }
     });
     $('#summernote').each(function(i) {
-        $("#summernote").eq(i).summernote({
-            height: 400,
-            minHeight: null,
-            maxHeight: null,
-            imageAttributes: {
-                icon: '<i class="note-icon-pencil"/>',
-                figureClass: 'figureClass',
-                figcaptionClass: 'captionClass',
-                captionText: 'Caption Goes Here.',
-            },
-            popover: {
-                image: [
-                    ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
-                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
-                    ['remove', ['removeMedia']],
-                    ['custom', ['imageAttributes']],
-                ],
-            },
-            maximumImageFileSize: 1024 * 1024 * 20,
-            callbacks: {
-                onImageUpload: function(files) {
-                    Swal.fire({
-                        allowOutsideClick: false,
-                        onBeforeOpen: () => {
-                            Swal.showLoading();
-                            $('.swal2-loading').html('<img class="w-100" src="' + '{{ URL::asset('
-                                assets / images / image_loading.gif ') }}' + '" />');
-                        },
-                        animation: false,
-                    });
-                    var promises = [];
-                    $.each(files, function(file) {
-                        promises.push(sendFile(files[file], i));
-                    });
-                    $.when.apply(null, promises).done(function() {
-                        Swal.close();
-                    });
-                },
-                onImageUploadError: function(msg) {
-                    alert('Invalid image');
-                },
-                onChange: function(contents, $editable) {
-                    //remark: solve below problem, justify after image or hyperlink
-                    var paragraph = $('.note-editable').find("p");
-
-                    $.each(paragraph, function(index, text) {
-                        if (text.firstElementChild == null) {
-                            if (text.style.textAlign == '') {
-                                text.style.textAlign = "justify";
-                            }
-                        }
-                    });
-                },
-            },
-        });
+        $("#summernote").eq(i).summernote();
     });
 
     function sendFile(img, i) {

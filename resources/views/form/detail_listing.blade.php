@@ -260,7 +260,7 @@
                                         <b>{{ @$rows->form_detail_oum }}</b>
                                     </td>
                                     <td>
-                                        <b>{{ @$rows->form_detail_remark }}</b>
+                                        {!! @$rows->form_detail_remark !!}
                                     </td>
                                     @canany(['form_detail_manage']) <td>
                                         <div class="button-container" style="display: flex;gap:10px;">

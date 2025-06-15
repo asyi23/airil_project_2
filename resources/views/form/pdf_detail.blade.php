@@ -65,6 +65,10 @@
         @endphp
 
         @foreach($form_detail as $detail)
+        @php
+        $content = $detail->form_detail_remark;
+        $isHtml = $content !== strip_tags($content); // true if contains HTML
+        @endphp
         <tr>
             <td>{{ $no++}} </td>
             <td>{{ \Carbon\Carbon::parse($detail->form_detail_date)->format('d-m-Y') }}</td>
@@ -72,7 +76,13 @@
             <td>{{ @$detail->form_detail_order_no }}</td>
             <td>{{ @$detail->form_detail_quantity }}</td>
             <td>{{ @$detail->form_detail_oum }}</td>
-            <td>{{ @$detail->form_detail_remark }}</td>
+            <td>
+                @if ($isHtml)
+                {!! $content !!}
+                @else
+                {{ nl2br(e($content)) }}
+                @endif
+            </td>
         </tr>
         @endforeach
         <tr>
