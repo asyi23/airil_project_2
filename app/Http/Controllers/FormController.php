@@ -326,7 +326,9 @@ class FormController extends Controller
                     $q->whereBetween('form_detail_date', [$start_date, $end_date]);
                 });
             })
+            ->orderBy("form_detail_end_date", "asc")
             ->get();
+
         $form = Form::where('form_id', $id)->first();
         $total_form_detail = $form_detail->sum('form_detail_quantity');
         $measurement = $form_detail->pluck('form_detail_oum')->first();

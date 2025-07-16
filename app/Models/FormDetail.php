@@ -53,6 +53,7 @@ class FormDetail extends Model
                 })
 
                 ->where("form_id", $id)
+                ->orderBy("form_detail_end_date", "asc")
                 ->paginate($perpage);
             return $form_detail;
         }
