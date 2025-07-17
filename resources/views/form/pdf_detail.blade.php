@@ -91,28 +91,30 @@
             </th>
         </tr>
     </table>
-    <table style="position: fixed; bottom: 30%; width: 100%; text-align: center;">
-        <tr>
-            <th style="text-align: center; padding: 0 20px;">
-                <div style="position: relative; display: inline-block;">
-                    <span style="display: block; text-align: center;">______________</span>
-                    <p style="position: relative; z-index: 1; background-color: white; margin: 0;">Prepared By</p>
-                </div>
-            </th>
-            <th style="text-align: center; padding: 0 20px;">
-                <div style="position: relative; display: inline-block;">
-                    <span style="display: block; text-align: center;">______________</span>
-                    <p style="position: relative; z-index: 1; background-color: white; margin: 0;">Checked By</p>
-                </div>
-            </th>
-            <th style="text-align: center; padding: 0 20px;">
-                <div style="position: relative; display: inline-block;">
-                    <span style="display: block; text-align: center;">______________</span>
-                    <p style="position: relative; z-index: 1; background-color: white; margin: 0;">Verified By</p>
-                </div>
-            </th>
-        </tr>
-    </table>
+    <div style="margin-top: 80px; text-align: center;">
+        <table style="width: 100%; text-align: center;">
+            <tr>
+                <th style="text-align: center; padding: 0 20px;">
+                    <div style="position: relative; display: inline-block;">
+                        <span style="display: block; text-align: center;">______________</span>
+                        <p style="position: relative; z-index: 1; background-color: white; margin: 0;">Prepared By</p>
+                    </div>
+                </th>
+                <th style="text-align: center; padding: 0 20px;">
+                    <div style="position: relative; display: inline-block;">
+                        <span style="display: block; text-align: center;">______________</span>
+                        <p style="position: relative; z-index: 1; background-color: white; margin: 0;">Checked By</p>
+                    </div>
+                </th>
+                <th style="text-align: center; padding: 0 20px;">
+                    <div style="position: relative; display: inline-block;">
+                        <span style="display: block; text-align: center;">______________</span>
+                        <p style="position: relative; z-index: 1; background-color: white; margin: 0;">Verified By</p>
+                    </div>
+                </th>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>
